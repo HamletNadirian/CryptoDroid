@@ -33,30 +33,58 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <ImageButton
+        <TextView
             android:id="@+id/decBtn"
             android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:src="@drawable/ic_baseline_exposure_neg_1_24" />
+            android:gravity="center"
+            android:text="-"
+            android:textSize="44sp" />
 
         <EditText
             android:id="@+id/shiftEdt"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
+            android:layout_height="match_parent"
             android:background="@android:color/transparent"
             android:gravity="center"
+            android:layout_weight="1"
             android:hint="Shift"
+            android:imeOptions="actionDone"
+
+            android:layout_gravity="center"
             android:inputType="number"
             android:textSize="20sp" />
 
-        <ImageButton
-            android:id="@+id/incBtn"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:src="@drawable/ic_baseline_exposure_plus_1_24"></ImageButton>
+            android:text="a->"
+            android:layout_weight="1"
+            android:gravity="right|center"
+            android:textSize="24sp"
+
+            />
+        <TextView
+            android:id="@+id/shiftLetterForExample"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:text="b"
+            android:layout_weight="1"
+            android:gravity="left|center"
+            android:textSize="24sp"
+            />
+            <TextView
+                android:id="@+id/incBtn"
+                android:layout_width="32dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:text="+"
+                android:gravity="center"
+                android:textSize="24sp"
+                />
     </LinearLayout>
     <!--    <Spinner
             android:layout_width="wrap_content"

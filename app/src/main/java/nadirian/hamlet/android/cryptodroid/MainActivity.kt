@@ -2,8 +2,10 @@ package nadirian.hamlet.android.cryptodroid
 
 import android.os.Bundle
 import android.view.inputmethod.EditorInfo
+import android.widget.TextView.OnEditorActionListener
 import androidx.appcompat.app.AppCompatActivity
 import nadirian.hamlet.android.cryptodroid.databinding.ActivityMainBinding
+
 
 val number: Char = 'a'
 val numberAsInt = number.code
@@ -20,14 +22,26 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         var plainTextEdt = binding.plaintext.text
-//        var shiftEdt = binding.shiftEdt.text
 
         binding.shiftEdt.setText("1")
 
+        binding.shiftEdt.setOnEditorActionListener(OnEditorActionListener { v, actionId, event ->
+            if (actionId == EditorInfo.IME_ACTION_DONE) {
+                var shiftFromEditeText = binding.shiftEdt.text.toString().toInt()
+                shiftEdtToInt = shiftFromEditeText
+                var encryptionForExample = encryptionCaesar("a", shiftFromEditeText)
+                var arrayListToStringEncryptionForExample = encryptionForExample.toList().joinToString(" ")
+                binding.shiftLetterForExample.setText(arrayListToStringEncryptionForExample)
+                true
+            } else false
+        })
         binding.incBtn.setOnClickListener {
             shiftEdtToInt += 1
             shiftEdtStringTemp = shiftEdtToInt.toString()
             binding.shiftEdt.setText(shiftEdtStringTemp)
+            var encryptionForExample = encryptionCaesar("a", shiftEdtToInt)
+            var arrayListToStringEncryptionForExample = encryptionForExample.toList().joinToString(" ")
+            binding.shiftLetterForExample.setText(arrayListToStringEncryptionForExample)
 
         }
 
@@ -36,11 +50,14 @@ class MainActivity : AppCompatActivity() {
             shiftEdtStringTemp = shiftEdtToInt.toString()
             binding.shiftEdt.setText(shiftEdtToInt.toString())
 
+            var encryptionForExample = encryptionCaesar("a", shiftEdtToInt)
+            var arrayListToStringEncryptionForExample = encryptionForExample.toList().joinToString(" ")
+            binding.shiftLetterForExample.setText(arrayListToStringEncryptionForExample)
+
+
         }
         binding.plaintext.setOnEditorActionListener { v, actionId, event ->
             if (actionId == EditorInfo.IME_ACTION_DONE) {
-                //shiftEdtToInt = shiftEdt.toString().toInt()
-
 
                 var encryption = encryptionCaesar(plainTextEdt.toString(), shiftEdtToInt)
                 var arrayListToString = encryption.toList().joinToString(" ")
@@ -69,14 +86,4 @@ private fun decryptionCaesar(string: String, shift: Int): ArrayList<Char> {
             textStr.add((s - number - shift + 26).mod(26).plus(numberAsInt).toChar())
     }
     return textStr
-}
-
-fun main() {
-    var cipherText = "a"
-    val ascii = cipherText.toInt()
-    /* for (s in cipherText) {
-         var t = (ascii - 97 - 0 + 26).mod(0)
-         println(t)
-     }*/
-
 }
