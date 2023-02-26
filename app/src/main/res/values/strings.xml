@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">CryptoDroid</string>
+    <string name="enter_your_text">Enter your text</string>
+
+    <string-array name="select_case">
+        <item>Maintain case</item>
+        <item>Ignore case</item>
+        <item>Maintain case</item>
+    </string-array>
+
+</resources>

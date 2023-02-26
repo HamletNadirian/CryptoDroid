@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:expandedHintEnabled="false"
+        android:layout_weight="0.5"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/plaintext"
+            android:hint="@string/enter_your_text"
+            android:layout_width="match_parent"
+            android:gravity="start"
+            android:layout_height="match_parent"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:maxLines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/decBtn"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_baseline_exposure_neg_1_24" />
+
+        <EditText
+            android:id="@+id/shiftEdt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:hint="Shift"
+            android:inputType="number"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/incBtn"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_baseline_exposure_plus_1_24"></ImageButton>
+    </LinearLayout>
+    <!--    <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></Spinner>-->
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:expandedHintEnabled="false"
+        android:layout_weight="0.5"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/cipherTextEdt"
+            android:hint="@string/enter_your_text"
+            android:layout_width="match_parent"
+            android:gravity="start"
+            android:layout_height="match_parent"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:maxLines="1" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+</LinearLayout>
